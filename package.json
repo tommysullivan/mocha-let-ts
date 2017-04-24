@@ -1,0 +1,29 @@
+{
+  "name": "mocha-let-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/mocha-let-ts/let.js",
+  "types": "dist/mocha-let-ts/let.d.ts",
+  "scripts": {
+    "tsc": "tsc -w",
+    "test": "mocha -u bdd-lazy-var/getter -r ts-node/register lib/tests/**/*.ts"
+  },
+  "author": {
+    "name" : "Tommy Sullivan",
+    "email" : "tom@tommysullivan.me",
+    "url" : "https://github.com/tommysullivan"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.5.1",
+    "@types/mocha": "^2.2.41",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "source-map-support": "^0.4.14",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "bdd-lazy-var": "^1.2.1"
+  }
+}
