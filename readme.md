@@ -23,7 +23,7 @@ An easy way to do this is by passing the -u param to mocha:
 ## Use in RSpec style tests
 
 ```typescript
-    import {Let} from "../mocha-let-ts/let";
+    import {Let} from "mocha-let-ts";
     
     class Subject {
         constructor(public name:string, public dependency:Dependency) {
