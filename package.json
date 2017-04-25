@@ -1,6 +1,6 @@
 {
   "name": "mocha-let-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/mocha-let-ts/let.js",
   "types": "dist/mocha-let-ts/let.d.ts",

@@ -1,6 +1,6 @@
 import './prepare-test-environment';
 import {expect} from 'chai';
-import {Let} from "../mocha-let-ts/let";
+import {Let, UnresolvedLetError} from "../mocha-let-ts/let";
 
 class Subject {
     constructor(public name:string, public dependency:Dependency) {
@@ -13,17 +13,17 @@ class Dependency {
 }
 
 describe('mocha-let-ts', () => {
-    context('when a high level let depends on another let whose default impl is to throw an exception', () => {
-        const dependency = Let<Dependency>(() => { throw new Error('Base let definition was called')});
+    context('when the "subject" depends on another "Let" whose default impl is to throw an exception', () => {
+        const dependency = Let<Dependency>();
         const subject = Let(()=>new Subject('defaultSubjectName', dependency()));
+
+        context('and the dependency let is not overridden at a lower level', () => {
+            it('throws the exception defined in the default impl', () => expect(subject).to.throw('Could not resolve "Let" as no factory was defined'));
+        });
 
         context('and the dependency let is overridden at a lower level', () => {
             dependency(()=>new Dependency('d1'));
             it('uses the more nested definition', () => expect(subject()).to.be.a.instanceof(Subject));
-        });
-
-        context('and the dependency let is not overridden at a lower level', () => {
-            it('throws the exception defined in the default impl', () => expect(subject).to.throw('Base let definition was called'));
         });
 
         context('and we defined the dependency factory to produce dependency named d2', () => {
