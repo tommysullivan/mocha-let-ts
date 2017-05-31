@@ -1,6 +1,6 @@
 import './prepare-test-environment';
 import {expect} from 'chai';
-import {Let, UnresolvedLetError} from "../mocha-let-ts/let";
+import {Let} from "../mocha-let-ts/let";
 
 class Subject {
     constructor(public name:string, public dependency:Dependency) {
@@ -12,13 +12,13 @@ class Dependency {
     constructor(public name:string) {}
 }
 
-describe('mocha-let-ts', () => {
+describe('Let<T>', () => {
     context('when the "subject" depends on another "Let" whose default impl is to throw an exception', () => {
         const dependency = Let<Dependency>();
         const subject = Let(()=>new Subject('defaultSubjectName', dependency()));
 
         context('and the dependency let is not overridden at a lower level', () => {
-            it('throws the exception defined in the default impl', () => expect(subject).to.throw('Could not resolve "Let" as no factory was defined'));
+            it('throws the exception defined in the default impl', () => expect(subject).to.throw());
         });
 
         context('and the dependency let is overridden at a lower level', () => {

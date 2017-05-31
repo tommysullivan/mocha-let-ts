@@ -5,7 +5,7 @@ export interface RSpecStyleLetObject<T> {
     (factory:()=>T):void;
 }
 
-var numLetInstances = 0;
+let numLetInstances = 0;
 
 export class UnresolvedLetError extends Error {
     constructor(letInstanceName:string) {
@@ -13,7 +13,12 @@ export class UnresolvedLetError extends Error {
     }
 }
 
+export class MissingBDDLazyVarUIError extends Error {
+    constructor() { super('Let usage requires the following mocha cli args: "[mocha-command] -u bdd-lazy-var/getter"')}
+}
+
 export function Let<T>(factory?:()=>T):RSpecStyleLetObject<T> {
+    if(def==undefined || get==undefined) throw new MissingBDDLazyVarUIError();
     const instanceNumber = numLetInstances++;
     const instanceName = `LetInstance${instanceNumber}`;
     if(factory) def(instanceName, factory);
