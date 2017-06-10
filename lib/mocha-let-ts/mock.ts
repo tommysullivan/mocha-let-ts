@@ -7,8 +7,8 @@ export type Optional<T> = {
 export function mock<T>(stubs:Optional<T>):T {
     let mock:T = {...(stubs as object)} as T;
     const stubsAsAny:any = stubs as any;
-    const members = Object.keys(stubs);
-    const methodNames = members.filter(member => stubsAsAny[member] instanceof Function);
-    methodNames.forEach(methodName => sinon.stub(mock, methodName, stubsAsAny[methodName]));
+    const memberNames = Object.keys(stubs);
+    const methodNames = memberNames.filter(memberName => stubsAsAny[memberName] instanceof Function);
+    methodNames.forEach(methodName => sinon.stub(mock, methodName).callsFake(stubsAsAny[methodName]));
     return mock as T;
 }
