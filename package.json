@@ -6,6 +6,7 @@
   "types": "dist/mocha-let-ts/let.d.ts",
   "scripts": {
     "tsc": "tsc -w",
+    "build": "tsc",
     "test": "mocha -u bdd-lazy-var/getter -r ts-node/register lib/tests/**/*.ts"
   },
   "author": {
