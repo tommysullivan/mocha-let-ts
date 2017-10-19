@@ -69,3 +69,32 @@ An easy way to do this is by passing the -u param to mocha:
         });
     });
 ```
+
+## Spy Example
+
+```
+class T {
+    originalMethod():number {
+        return 10;
+    }
+}
+
+const originalInstance:T = new T();
+const passthruToTExceptOnOverrides = spy<T>(originalInstance, {
+    someMethodOnT():number {
+        return 8;
+    }
+});
+expect(passthruToTExceptOnOverrides.someMethodOnT).to.equal(8);
+expect(passthruToTExceptOnOverrides.originalMethod).to.equal(10);
+```
+
+## To Publish:
+
+Add your credentials:
+
+    npm adduser --registry https://registry.npmjs.org/
+    
+Then publish (after updating package version according to semver in package.json):
+
+    npm publish --registry https://registry.npmjs.org/
