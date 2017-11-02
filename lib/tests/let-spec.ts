@@ -12,7 +12,7 @@ class Dependency {
     constructor(public name:string) {}
 }
 
-describe('Let<T>', () => {
+describe(Let.name, () => {
     context('when the "subject" depends on another "Let" whose default impl is to throw an exception', () => {
         const dependency = Let<Dependency>();
         const subject = Let(()=>new Subject('defaultSubjectName', dependency()));
