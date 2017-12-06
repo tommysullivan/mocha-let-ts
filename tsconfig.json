@@ -15,7 +15,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "rootDir": "lib",
     "moduleResolution": "node",
-    "lib": ["es6", "dom"]
+    "lib": ["dom", "es7"]
   },
   "filesGlob": [
     "!node_modules/**",
