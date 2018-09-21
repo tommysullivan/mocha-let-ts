@@ -1,4 +1,5 @@
-declare const def:any, get:any;
+declare const def:any, get:any, require:any;
+// const mocha = require("mocha");
 
 export interface RSpecStyleLetObject<T> {
     ():T;
@@ -6,6 +7,8 @@ export interface RSpecStyleLetObject<T> {
 }
 
 let numLetInstances = 0;
+
+// mocha.ui("bdd-lazy-var/getter");
 
 export class UnresolvedLetError extends Error {
     constructor(letInstanceName:string) {

@@ -13,9 +13,9 @@
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "lib",
+    "rootDirs": ["src"],
     "moduleResolution": "node",
-    "lib": ["es6", "dom"]
+    "lib": ["es2018", "dom"]
   },
   "filesGlob": [
     "!node_modules/**",
