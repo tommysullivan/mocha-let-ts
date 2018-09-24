@@ -13,10 +13,12 @@
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDirs": ["src"],
     "moduleResolution": "node",
     "lib": ["es2018", "dom"]
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "filesGlob": [
     "!node_modules/**",
     "!dist/**"

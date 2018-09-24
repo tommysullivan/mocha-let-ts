@@ -1,6 +1,6 @@
 import './prepare-test-environment';
 import {expect} from 'chai';
-import {mock} from "../src/mocha-let-ts/mock";
+import {mock} from "../src";
 
 class Subject {
     constructor(public dependency:Dependency) {}

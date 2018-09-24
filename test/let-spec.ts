@@ -1,6 +1,6 @@
 import './prepare-test-environment';
 import {expect} from 'chai';
-import { Let } from '../src/mocha-let-ts/let';
+import { Let } from '../src';
 
 interface ExampleInterface {
     someProperty:string;

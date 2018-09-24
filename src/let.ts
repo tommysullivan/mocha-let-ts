@@ -1,5 +1,4 @@
 declare const def:any, get:any, require:any;
-// const mocha = require("mocha");
 
 export interface RSpecStyleLetObject<T> {
     ():T;
