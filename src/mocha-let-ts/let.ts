@@ -8,8 +8,6 @@ export interface RSpecStyleLetObject<T> {
 
 let numLetInstances = 0;
 
-// mocha.ui("bdd-lazy-var/getter");
-
 export class UnresolvedLetError extends Error {
     constructor(letInstanceName:string) {
         super(`Could not resolve "Let" as no factory was defined for ${letInstanceName}`)
